@@ -29,6 +29,12 @@ public class StringUtilsTest {
 		boolean email = StringUtils.isEnglish("dkjdfkjkd");
 		System.out.println(email);
 	}
+	@Test
+	public void testPart() {
+		//String email = StringUtils.getPartString1("012345");
+		String email = StringUtils.getPartString("http://news.cnstock.com/news,yw-201908-4412690.htm");
+		//System.out.println(email);
+	}
 	
 	@Test
 	public void testRandom() {

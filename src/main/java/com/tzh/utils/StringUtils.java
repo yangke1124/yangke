@@ -81,7 +81,7 @@ public class StringUtils {
 		if(matcher.matches()) {
 			return true;
 		}
-		
+
 		return false;
 	}
 	/***
@@ -148,5 +148,21 @@ public class StringUtils {
 		}
 		return buffer.toString();
 	}
-	
+
+	/***
+	 * 提取部分字符串
+	 * http://news.cnstock.com/newswww,yw-201908-4412690.htm
+	 * @return
+	 */
+	public static String getPartString(String str) {
+		Pattern pattern = Pattern.compile("\\d{7}");
+		Matcher matcher = pattern.matcher(str);
+		String group = "";
+		while (matcher.find()) {
+			group = matcher.group();
+		}
+		return group;
+	}
+
+
 }
