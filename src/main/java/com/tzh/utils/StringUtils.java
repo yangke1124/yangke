@@ -43,6 +43,24 @@ public class StringUtils {
 		}
 		return false;
 	}
+	/***
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static boolean isNymber(String str) {
+		//先判断字符串不是空的
+		boolean blank = isBlank(str);
+		if(!blank) {
+			return false;
+		}
+		Pattern pattern = Pattern.compile("^[0-9]+$");
+		Matcher matcher = pattern.matcher(str);
+		if(matcher.matches()) {
+			return true;
+		}
+		return false;
+	}
 
 	/***
 	 * 判断是否为电子邮箱
@@ -164,5 +182,28 @@ public class StringUtils {
 		return group;
 	}
 
+	public static void main(String[] args) {
+		String str = "aaaa\r\nbbbb\r\nv\rvvv\r\nc\rccc\r\ndddd";
+		String[] split = str.split("(\r\n)");
+		StringBuffer buffer = new StringBuffer();
+		for (String string : split) {
+			string = string.replaceAll("(\r)", "<br/>");
+			buffer.append("<p>");
+			buffer.append(string);
+			buffer.append("</p>   ");
+		}
+		System.out.println(buffer.toString());
+	}
+	public static String replace(String str) {
+		String[] split = str.split("(\r\n)");
+		StringBuffer buffer = new StringBuffer();
+		for (String string : split) {
+			string = string.replaceAll("(\r)", "<br/>");
+			buffer.append("<p>");
+			buffer.append(string);
+			buffer.append("</p>   ");
+		}
+		return buffer.toString();
+	}
 
 }
