@@ -43,6 +43,24 @@ public class StringUtils {
 		}
 		return false;
 	}
+	/***
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static boolean isNymber(String str) {
+		//先判断字符串不是空的
+		boolean blank = isBlank(str);
+		if(!blank) {
+			return false;
+		}
+		Pattern pattern = Pattern.compile("^[0-9]+$");
+		Matcher matcher = pattern.matcher(str);
+		if(matcher.matches()) {
+			return true;
+		}
+		return false;
+	}
 
 	/***
 	 * 判断是否为电子邮箱
