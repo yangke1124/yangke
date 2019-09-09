@@ -182,5 +182,28 @@ public class StringUtils {
 		return group;
 	}
 
+	public static void main(String[] args) {
+		String str = "aaaa\r\nbbbb\r\nv\rvvv\r\nc\rccc\r\ndddd";
+		String[] split = str.split("(\r\n)");
+		StringBuffer buffer = new StringBuffer();
+		for (String string : split) {
+			string = string.replaceAll("(\r)", "<br/>");
+			buffer.append("<p>");
+			buffer.append(string);
+			buffer.append("</p>   ");
+		}
+		System.out.println(buffer.toString());
+	}
+	public static String replace(String str) {
+		String[] split = str.split("(\r\n)");
+		StringBuffer buffer = new StringBuffer();
+		for (String string : split) {
+			string = string.replaceAll("(\r)", "<br/>");
+			buffer.append("<p>");
+			buffer.append(string);
+			buffer.append("</p>   ");
+		}
+		return buffer.toString();
+	}
 
 }
